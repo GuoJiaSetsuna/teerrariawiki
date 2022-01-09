@@ -1,7 +1,9 @@
 <?php
-	// ¦Û­qÅÜ¼Æ(Variable)
-	$hostname = "localhost";		/* MySQLªº¥D¾÷¦WºÙ */
-	$username = "root";		/* MySQLªº¨Ï¥ÎªÌ¦WºÙ */
-	$password = "";		/* MySQLªº¨Ï¥ÎªÌ±K½X */
-	$database = "terraria";			/*¸ê®Æ®w¦WºÙ*/
+	// è‡ªè¨‚è®Šæ•¸(Variable)
+	$hostname = "ec2-3-225-132-26.compute-1.amazonaws.com";		/* MySQLçš„ä¸»æ©Ÿåç¨± */
+	$database = "dev4dnqaqrhhsn";			/*è³‡æ–™åº«åç¨±*/
+	$username = "yqoqkaqojsvdqb";		/* MySQLçš„ä½¿ç”¨è€…åç¨± */
+	$port = "5432";
+	$password = "ae4d12646dc8f183349fc28f54d134444d0c922a8bf4d0560151a955b2de9ca9";		/* MySQLçš„ä½¿ç”¨è€…å¯†ç¢¼ */
+	
 ?>
