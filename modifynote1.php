@@ -78,13 +78,19 @@
 												echo "<h1>您不是發文者並沒有權限修改</h1>";
 												echo '<meta http-equiv=REFRESH CONTENT=3;url=note.php>';
 											}
+											else
+											{
+											?>
+												<form action="modifynote2.php" method="post">
+												<input type="hidden" name='ID' value="<?php echo $ID; ?>">
+												標題<input type='text' name='title' value='<?php echo $title; ?>'></br>
+												內文<textarea cols='50' rows='10' name='description'><?php echo $description; ?></textarea></br>
+												<input type="submit" value="修改資料"><input type="button" value="取消" onclick="location.href='http://localhost/displaynote.php'">
+												
+											<?php
+											}
 										}
 									?>
-									<form action="modifynote2.php" method="post">
-									<input type="hidden" name='ID' value="<?php echo $ID; ?>">
-									標題<input type='text' name='title' value='<?php echo $title; ?>'></br>
-									內文<textarea cols='50' rows='10' name='description'><?php echo $description; ?></textarea></br>
-									<input type="submit" value="修改資料"><input type="button" value="取消" onclick="location.href='note.php'">
 								</header>
 							</article>
 					</div>
