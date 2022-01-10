@@ -60,9 +60,9 @@
 											{  // 接收使用者所傳送之標題與內文
 												$title = $_POST["title"];
 												$description = $_POST["description"];
-												$link = new PDO('mysql:host='.$hostname.';dbname='.$database.';charset=utf8', $username, $password);
+												$link = new PDO('pgsql:host='.$hostname.';port='.$port.';dbname='.$database,$username, $password);
 												//將標題與內文INSERT至資料庫
-												$query = "INSERT INTO `note`(`account`,`Title`,`Description`) VALUES ('".$_COOKIE['account']."','".$title."','".$description."')";
+												$query = "INSERT INTO note(account,title,description) VALUES ('".$_COOKIE['account']."','".$title."','".$description."')";
 												$count=$link->exec($query);
 												echo "成功發文";
 												echo '<meta http-equiv=REFRESH CONTENT=2;url=note.php>';
