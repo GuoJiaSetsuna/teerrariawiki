@@ -34,8 +34,8 @@
 							<li><a href="armor.php">盔甲</a></li>
 							<li><a href="dps.php">DPS</a></li>
 							<li><a href="note.php">討論區</a></li>
-							<li class="active"><a href="login.php">登入</a></li>
-							<li><a href="logout.php">登出</a></li>
+							<li><a href="login.php">登入</a></li>
+							<li class="active"><a href="logout.php">登出</a></li>
 						</ul>
 						<ul class="icons">
 							<li><a href="https://twitter.com/terraria_logic" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
