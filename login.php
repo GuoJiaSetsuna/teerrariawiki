@@ -58,17 +58,23 @@
 											echo"<h3>您以已登入:".$_COOKIE['account']."</h3>";
 											echo '<meta http-equiv=REFRESH CONTENT=2;url=index.php>';
 										}
+										else
+										{
+										?>
+											<form action="login2.php" method="GET">
+												帳號Account:<br />
+												<input type="text" name="account">
+												<br />
+												密碼Password:<br />
+												<input type="password" name="password">
+												<br />
+												<input type="submit" name="submit" value="登入">
+												<h3>沒有帳號嗎?</h3><input type="button" value="註冊帳號" onclick="location.href='sign_up.php'">
+											</form>
+											
+										<?php
+										}
 									?>
-									<form action="login2.php" method="GET">
-										帳號Account:<br />
-										<input type="text" name="account">
-										<br />
-										密碼Password:<br />
-										<input type="password" name="password">
-										<br />
-										<input type="submit" name="submit" value="登入">
-										<h3>沒有帳號嗎?</h3><input type="button" value="註冊帳號" onclick="location.href='sign_up.php'">
-									</form>
 								</header>
 							</article>
 					</div>
