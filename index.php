@@ -31,7 +31,7 @@
 					</div>
 				<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo">Terraria</a>
+						<a href="index.php" class="logo">Terraria</a>
 					</header>
 
 				<!-- Nav -->
