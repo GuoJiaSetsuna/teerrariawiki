@@ -75,33 +75,33 @@
 											// 將結果印出
 											foreach ($result as $row)
 											{
-												echo "<tr class='order col-xs-12'><td data-th='外觀'>".$row["Image"]."</td><td data-th='套裝'>".$row["name"]."</td><td data-th='頭部'>".nl2br($row["head"])."</td><td data-th='胸部'>".nl2br($row["chest"])."</td><td data-th='腿部'>".nl2br($row["legs"])."</td><td data-th='共計'>".nl2br($row["total"])."</td><td width='300' data-th='獎勵/效果/備註'>".nl2br($row["bonuses"])."</td><td width='200' data-th='花費/來源/製作於'>".nl2br($row["source"])."</td></tr>";
+												echo "<tr class='order col-xs-12'><td data-th='外觀'>".$row["image"]."</td><td data-th='套裝'>".$row["name"]."</td><td data-th='頭部'>".nl2br($row["head"])."</td><td data-th='胸部'>".nl2br($row["chest"])."</td><td data-th='腿部'>".nl2br($row["legs"])."</td><td data-th='共計'>".nl2br($row["total"])."</td><td width='300' data-th='獎勵/效果/備註'>".nl2br($row["bonuses"])."</td><td width='200' data-th='花費/來源/製作於'>".nl2br($row["source"])."</td></tr>";
 											}
 										}
 										elseif($_GET["amname"]==NULL)//輸入值為空時印出全部資料並且提示輸入值為空
 										{
 											echo '輸入名稱為空';
 											// 寫入SQL語法到變數
-											$query = "SELECT * FROM `armor` ORDER BY `armor`.`ID`;";
+											$query = "SELECT * FROM armor ORDER BY ID;";
 											// 將SQL語法執行並把結果放入陣列
 											$result = $link->query($query);
 											// 將結果印出
 											foreach ($result as $row)
 											{
-												echo "<tr class='order col-xs-12'><td data-th='外觀'>".$row["Image"]."</td><td data-th='套裝'>".$row["name"]."</td><td data-th='頭部'>".nl2br($row["head"])."</td><td data-th='胸部'>".nl2br($row["chest"])."</td><td data-th='腿部'>".nl2br($row["legs"])."</td><td data-th='共計'>".nl2br($row["total"])."</td><td width='300' data-th='獎勵/效果/備註'>".nl2br($row["bonuses"])."</td><td width='200' data-th='花費/來源/製作於'>".nl2br($row["source"])."</td></tr>";
+												echo "<tr class='order col-xs-12'><td data-th='外觀'>".$row["image"]."</td><td data-th='套裝'>".$row["name"]."</td><td data-th='頭部'>".nl2br($row["head"])."</td><td data-th='胸部'>".nl2br($row["chest"])."</td><td data-th='腿部'>".nl2br($row["legs"])."</td><td data-th='共計'>".nl2br($row["total"])."</td><td width='300' data-th='獎勵/效果/備註'>".nl2br($row["bonuses"])."</td><td width='200' data-th='花費/來源/製作於'>".nl2br($row["source"])."</td></tr>";
 											}
 										}
 										else//輸入值不為空時執行搜尋
 										{
 											$amname = $_GET["amname"];
 											// 寫入SQL語法到變數
-											$query = "SELECT *  FROM `armor` WHERE (`name` LIKE '".$amname."' OR `name` LIKE '%".$amname."%') ORDER BY `ID` ASC;";
+											$query = "SELECT *  FROM armor WHERE (name LIKE '".$amname."' OR name LIKE '%".$amname."%') ORDER BY ID ASC;";
 											// 將SQL語法執行並把結果放入陣列
 											$result = $link->query($query);
 											// 將結果印出
 											foreach ($result as $row)
 											{
-												echo "<tr class='order col-xs-12'><td data-th='外觀'>".$row["Image"]."</td><td data-th='套裝'>".$row["name"]."</td><td data-th='頭部'>".nl2br($row["head"])."</td><td data-th='胸部'>".nl2br($row["chest"])."</td><td data-th='腿部'>".nl2br($row["legs"])."</td><td data-th='共計'>".nl2br($row["total"])."</td><td width='300' data-th='獎勵/效果/備註'>".nl2br($row["bonuses"])."</td><td width='200' data-th='花費/來源/製作於'>".nl2br($row["source"])."</td></tr>";
+												echo "<tr class='order col-xs-12'><td data-th='外觀'>".$row["image"]."</td><td data-th='套裝'>".$row["name"]."</td><td data-th='頭部'>".nl2br($row["head"])."</td><td data-th='胸部'>".nl2br($row["chest"])."</td><td data-th='腿部'>".nl2br($row["legs"])."</td><td data-th='共計'>".nl2br($row["total"])."</td><td width='300' data-th='獎勵/效果/備註'>".nl2br($row["bonuses"])."</td><td width='200' data-th='花費/來源/製作於'>".nl2br($row["source"])."</td></tr>";
 											}
 										}
 									?>
