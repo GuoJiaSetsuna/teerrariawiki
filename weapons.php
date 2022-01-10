@@ -84,7 +84,7 @@
 											// 將結果印出
 											foreach ($result as $row)
 											{
-												echo "<tr class='order col-xs-12'><td data-th='外觀'><img src='".$row["Image"]."'></td><td data-th='名稱'>".$row["name"]."</td><td data-th='武器類型'>".$row["type"]."</td><td data-th='傷害'>".$row["damage"]."</td><td data-th='擊退'>".$row["Knockback"]."</td><td data-th='魔力／暴集率'>".$row["Critical"]."</td><td data-th='使用時間'>".$row["Use time"]."</td><td data-th='射速'>".$row["Velocity"]."</td><td data-th='稀有度'>".$row["Rarity"]."</td><td data-th='掉落自or製作自'>".$row["Dropped"]."</td></tr>";
+												echo "<tr class='order col-xs-12'><td data-th='外觀'><img src='".$row["image"]."'></td><td data-th='名稱'>".$row["name"]."</td><td data-th='武器類型'>".$row["type"]."</td><td data-th='傷害'>".$row["damage"]."</td><td data-th='擊退'>".$row["knockback"]."</td><td data-th='魔力／暴集率'>".$row["critical"]."</td><td data-th='使用時間'>".$row["Use time"]."</td><td data-th='射速'>".$row["velocity"]."</td><td data-th='稀有度'>".$row["rarity"]."</td><td data-th='掉落自or製作自'>".$row["dropped"]."</td></tr>";
 											}
 										}
 										elseif($_GET["wpname"]==NULL)//輸入值為空時印出全部資料並且提示輸入值為空，並把所有結果顯示出來
@@ -97,8 +97,7 @@
 											// 將結果印出
 											foreach ($result as $row)
 											{
-												echo "	<tr class='order col-xs-12'><td data-th='外觀'><img src='".$row["Image"]."'></td><td data-th='名稱'>".$row["name"]."</td><td data-th='武器類型'>".$row["type"]."</td><td data-th='傷害'>".$row["damage"]."</td><td data-th='擊退'>".$row["Knockback"]."</td><td data-th='魔力／暴集率'>".$row["Critical"]."</td><td data-th='使用時間'>".$row["Use time"]."</td><td data-th='射速'>".$row["Velocity"]."</td><td data-th='稀有度'>".$row["Rarity"]."</td><td data-th='掉落自or製作自'>".$row["Dropped"]."</td></tr>";											}
-										}
+												echo "<tr class='order col-xs-12'><td data-th='外觀'><img src='".$row["image"]."'></td><td data-th='名稱'>".$row["name"]."</td><td data-th='武器類型'>".$row["type"]."</td><td data-th='傷害'>".$row["damage"]."</td><td data-th='擊退'>".$row["knockback"]."</td><td data-th='魔力／暴集率'>".$row["critical"]."</td><td data-th='使用時間'>".$row["Use time"]."</td><td data-th='射速'>".$row["velocity"]."</td><td data-th='稀有度'>".$row["rarity"]."</td><td data-th='掉落自or製作自'>".$row["dropped"]."</td></tr>";										}
 										else//輸入值不為空時執行搜尋
 										{
 											$wpname = $_GET["wpname"];
@@ -109,7 +108,7 @@
 											// 將結果印出
 											foreach ($result as $row)
 											{
-												echo "<tr class='order col-xs-12'><td data-th='外觀'><img src='".$row["Image"]."'></td><td data-th='名稱'>".$row["name"]."</td><td data-th='武器類型'>".$row["type"]."</td><td data-th='傷害'>".$row["damage"]."</td><td data-th='擊退'>".$row["Knockback"]."</td><td data-th='魔力／暴集率'>".$row["Critical"]."</td><td data-th='使用時間'>".$row["Use time"]."</td><td data-th='射速'>".$row["Velocity"]."</td><td data-th='稀有度'>".$row["Rarity"]."</td><td data-th='掉落自or製作自'>".$row["Dropped"]."</td></tr>";
+												echo "<tr class='order col-xs-12'><td data-th='外觀'><img src='".$row["image"]."'></td><td data-th='名稱'>".$row["name"]."</td><td data-th='武器類型'>".$row["type"]."</td><td data-th='傷害'>".$row["damage"]."</td><td data-th='擊退'>".$row["knockback"]."</td><td data-th='魔力／暴集率'>".$row["critical"]."</td><td data-th='使用時間'>".$row["Use time"]."</td><td data-th='射速'>".$row["velocity"]."</td><td data-th='稀有度'>".$row["rarity"]."</td><td data-th='掉落自or製作自'>".$row["dropped"]."</td></tr>";
 											}
 										}
 									?>
