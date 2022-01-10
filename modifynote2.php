@@ -60,7 +60,7 @@
 											$ID = $_POST["ID"];
 											$link = new PDO('pgsql:host='.$hostname.';port='.$port.';dbname='.$database,$username, $password);
 											//使用所接收到的變數對資料庫討論區表單進行UPDATE
-											$query = "UPDATE note SET title = '$title',description = '$description' WHERE id = '$ID'";
+											$query = "UPDATE note SET title = '安安',description = '早上好',time=CURRENT_TIMESTAMP WHERE id = '$ID'";
 											$count=$link->exec($query);
 											echo "修改成功";
 											echo '<meta http-equiv=REFRESH CONTENT=1;url=note.php>';
