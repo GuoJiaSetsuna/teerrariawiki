@@ -73,12 +73,12 @@
 									<tbody>
 									<?php
 										// 建立與MySQL資料庫的連線
-										$link = new PDO('mysql:host='.$hostname.';dbname='.$database.';charset=utf8', $username, $password);
+										$link = new PDO('pgsql:host='.$hostname.';port='.$port.';dbname='.$database,$username, $password);
 										// 寫入SQL語法到變數
 										if(!isset($_GET["wpname"]))//初始無輸入值時將全部資料印出
 										{
 											// 寫入SQL語法到變數
-											$query = "SELECT * FROM `weapon` ORDER BY `weapon`.`type`;";
+											$query = "SELECT * FROM weapon ORDER BY type;";
 											// 將SQL語法執行並把結果放入陣列
 											$result = $link->query($query);
 											// 將結果印出
@@ -91,7 +91,7 @@
 										{
 											echo '輸入名稱為空';
 											// 寫入SQL語法到變數
-											$query = "SELECT * FROM `weapon` ORDER BY `weapon`.`type`;";
+											$query = "SELECT * FROM weapon ORDER BY type;";
 											// 將SQL語法執行並把結果放入陣列
 											$result = $link->query($query);
 											// 將結果印出
@@ -103,7 +103,7 @@
 										{
 											$wpname = $_GET["wpname"];
 											//將輸入的關鍵字用SQL LIKE語法進行搜尋
-											$query = "SELECT *  FROM `weapon` WHERE (`name` LIKE '".$wpname."' OR `name` LIKE '%".$wpname."%') ORDER BY `ID` ASC;";
+											$query = "SELECT *  FROM weapon WHERE (name LIKE '".$wpname."' OR name LIKE '%".$wpname."%') ORDER BY ID ASC;";
 											// 將SQL語法執行並把結果放入陣列
 											$result = $link->query($query);
 											// 將結果印出
