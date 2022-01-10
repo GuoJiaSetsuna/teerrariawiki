@@ -3275,7 +3275,7 @@ input, select, textarea {
 			width: 100%;
 			height: 100%;
 			background-color: #212931;
-			background-image: image-url("../images/terraria.jpg");
+			background-image: url("../images/terraria.jpg");
 			background-size: cover;
 			background-position: center;
 			background-repeat: repeat;
