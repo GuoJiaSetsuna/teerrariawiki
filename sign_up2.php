@@ -68,7 +68,7 @@
 											$accpassword = $_GET["accpassword"];
 											$link = new PDO('pgsql:host='.$hostname.';port='.$port.';dbname='.$database,$username, $password);
 											// 將輸入的帳號密碼使用SQL語法編譯並放入變數，搜尋是否有重複之帳號
-											$query = "SELECT * FROM user where account like '".$account."';";
+											$query = "SELECT * FROM note where account like '".$account."';";
 											$result = $link->query($query);
 											foreach ($result as $row);
 											//若$row不存在代表無相同帳號，進行註冊
