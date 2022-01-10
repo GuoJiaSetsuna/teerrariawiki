@@ -65,7 +65,7 @@
 									<tbody>
 									<?php
 										// 建立與MySQL資料庫的連線
-										$link = new PDO('mysql:host='.$hostname.';dbname='.$database.';charset=utf8', $username, $password);
+										$link = new PDO('pgsql:host='.$hostname.';port='.$port.';dbname='.$database,$username, $password);
 										if(!isset($_GET["amname"]))//初始無輸入值時將全部資料印出
 										{
 											// 寫入SQL語法到變數
