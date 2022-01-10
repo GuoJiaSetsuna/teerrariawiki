@@ -69,7 +69,7 @@
 										if(!isset($_GET["amname"]))//初始無輸入值時將全部資料印出
 										{
 											// 寫入SQL語法到變數
-											$query = "SELECT * FROM `armor` ORDER BY `armor`.`ID`;";
+											$query = "SELECT * FROM armor ORDER BY ID;";
 											// 將SQL語法執行並把結果放入陣列
 											$result = $link->query($query);
 											// 將結果印出
