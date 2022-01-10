@@ -66,16 +66,16 @@
 											// 接收使用者所傳送之帳號與密碼
 											$account = $_GET["account"];
 											$accpassword = $_GET["accpassword"];
-											$link = new PDO('mysql:host='.$hostname.';dbname='.$database.';charset=utf8', $username, $password);
+											$link = new PDO('pgsql:host='.$hostname.';port='.$port.';dbname='.$database,$username, $password);
 											// 將輸入的帳號密碼使用SQL語法編譯並放入變數，搜尋是否有重複之帳號
-											$query = "SELECT * FROM `user` where `account` like '".$account."';";
+											$query = "SELECT * FROM user where account like '".$account."';";
 											$result = $link->query($query);
 											foreach ($result as $row);
 											//若$row不存在代表無相同帳號，進行註冊
 											if(!isset($row[1]))
 											{
 												//INSERT所輸入帳號密碼進行註冊
-												$query1 = "INSERT INTO `user`(`account`,`password`) VALUES ('$account','$accpassword')";
+												$query1 = "INSERT INTO user(account,password) VALUES ('$account','$accpassword')";
 												$count=$link->exec($query1);
 												echo "<h3>註冊成功</h3>";
 												echo '<meta http-equiv=REFRESH CONTENT=2;url=login.php>';

@@ -52,7 +52,7 @@
 								<header class="major">
 									<h1>登入</h1>
 									<?php
-										$link = new PDO('mysql:host='.$hostname.';dbname='.$database.';charset=utf8', $username, $password);
+										$link = new PDO('pgsql:host='.$hostname.';port='.$port.';dbname='.$database,$username, $password);
 											// 寫入SQL語法到變數
 											if(!isset($_GET["account"])||!isset($_GET["password"]))//初始無輸入值時若有人意外進入此網頁則不顯示
 											{
@@ -68,7 +68,7 @@
 												$account = $_GET["account"];
 												$password = $_GET["password"];
 												// 將輸入的帳號密碼使用SQL語法編譯並放入變數
-												$query = "SELECT * FROM `user` where `account` like '".$account."';";
+												$query = "SELECT * FROM user where account like '".$account."';";
 												// 將SQL語法執行並把結果放入陣列
 												$result = $link->query($query);
 												foreach ($result as $row);

@@ -62,13 +62,13 @@
 											$ID = $_GET["ID"];
 											$acc = $_GET["account"];
 											$cookie =$_COOKIE['account'];
-											$link = new PDO('mysql:host='.$hostname.';dbname='.$database.';charset=utf8', $username, $password);
+											$link = new PDO('pgsql:host='.$hostname.';port='.$port.';dbname='.$database,$username, $password);
 											//使用ID對資料庫之留言資料表進行搜尋
-											$query = "SELECT`Note`.`Title`,`Note`.`ID`,`Note`.`Description` FROM `Note` WHERE `Note`.`ID` = '$ID' ;";
+											$query = "SELECT title,id,description FROM note WHERE id = '$ID' ;";
 											$result = $link->query($query);
 											//將搜尋結果放入text
 											while ($row=$result->fetch(PDO::FETCH_ASSOC))
-											{
+											
 												$title = $row['Title'];
 												$description = $row['Description'];
 											}

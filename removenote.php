@@ -62,7 +62,7 @@
 											$ID = $_GET["ID"];
 											$acc = $_GET["account"];
 											$cookie =$_COOKIE['account'];
-											$link = new PDO('mysql:host='.$hostname.';dbname='.$database.';charset=utf8', $username, $password);
+											$link = new PDO('pgsql:host='.$hostname.';port='.$port.';dbname='.$database,$username, $password);
 											//將當前cookie跟發文者帳號進行比對不一致則不給予刪除權限
 											//不一致顯示提醒字串並返回討論區
 											if($acc!=$cookie)
@@ -73,7 +73,7 @@
 											//若一致，進行刪除並顯示成功字樣
 											elseif($acc==$cookie)
 											{
-												$sql = "DELETE FROM `note` WHERE `note`.`ID` ='" .$ID. "'";
+												$sql = "DELETE FROM note WHERE id ='" .$ID. "'";
 												$count=$link->exec($sql);
 												echo "刪除成功";
 												echo '<meta http-equiv=REFRESH CONTENT=2;url=note.php>';
