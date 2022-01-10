@@ -68,7 +68,7 @@
 												$account = $_GET["account"];
 												$password = $_GET["password"];
 												// 將輸入的帳號密碼使用SQL語法編譯並放入變數
-												$query = "SELECT * FROM public."user" where account like '".$account."';";
+												$query = "SELECT * FROM public.'user' where account like '".$account."';";
 												// 將SQL語法執行並把結果放入陣列
 												$result = $link->query($query);
 												foreach ($result as $row);
