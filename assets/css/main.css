@@ -3275,11 +3275,11 @@ input, select, textarea {
 			width: 100%;
 			height: 100%;
 			background-color: #212931;
-			background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/bc615435-c6e1-4448-b844-2931d265e8f6/dc2yinl-5fda5e7d-38d7-4d64-8b3c-d9c97c4e16e4.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2JjNjE1NDM1LWM2ZTEtNDQ0OC1iODQ0LTI5MzFkMjY1ZThmNlwvZGMyeWlubC01ZmRhNWU3ZC0zOGQ3LTRkNjQtOGIzYy1kOWM5N2M0ZTE2ZTQuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.c2jQieV89hIfTRtMby_B1nw_uhXYrsUHHdEIGSpL8jk"), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../images/bg.jpg");
-			background-size: cover,								auto,														100% auto;
-			background-position: center,								center,														top center;
-			background-repeat: repeat,								no-repeat,													no-repeat;
-			background-attachment: scroll,								scroll,														scroll;
+			background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/bc615435-c6e1-4448-b844-2931d265e8f6/dc2yinl-5fda5e7d-38d7-4d64-8b3c-d9c97c4e16e4.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2JjNjE1NDM1LWM2ZTEtNDQ0OC1iODQ0LTI5MzFkMjY1ZThmNlwvZGMyeWlubC01ZmRhNWU3ZC0zOGQ3LTRkNjQtOGIzYy1kOWM5N2M0ZTE2ZTQuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.c2jQieV89hIfTRtMby_B1nw_uhXYrsUHHdEIGSpL8jk");
+			background-size: cover;
+			background-position: center;
+			background-repeat: repeat;
+			background-attachment: scroll;
 			z-index: -1;
 		}
 
