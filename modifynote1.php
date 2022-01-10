@@ -68,7 +68,7 @@
 											$result = $link->query($query);
 											//將搜尋結果放入text
 											while ($row=$result->fetch(PDO::FETCH_ASSOC))
-											
+											{
 												$title = $row['Title'];
 												$description = $row['Description'];
 											}
