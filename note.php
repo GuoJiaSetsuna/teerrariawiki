@@ -57,14 +57,14 @@
 									<tbody>
 									<?php
 									// 建立與MySQL資料庫的連線
-									$link = new PDO('mysql:host='.$hostname.';dbname='.$database.';charset=utf8', $username, $password);
+									$link = new PDO('pgsql:host='.$hostname.';port='.$port.';dbname='.$database,$username, $password);
 									// 寫入SQL語法到變數
-									$query = "SELECT DATE_FORMAT(`Note`.`Time`,'%Y-%m-%d') AS Time,`Note`.`Title`,`Note`.`account`,`Note`.`ID`,`Note`.`Description` FROM `Note` ORDER BY `Note`.`Time` DESC;";
+									$query = "SELECT to_char(Time,'YYYY-Mon-dd') AS Time,Title,account,ID,Description FROM Note ORDER BY Note DESC;";
 									$result = $link->query($query);
 									//印出
 									foreach ($result as $row)						
 									{
-										echo "		<tr class='order col-xs-12'><td data-th='帳號'>".$row["account"]."</td><td data-th='標題'>".$row["Title"]."</td><td data-th='內文'>".nl2br($row["Description"])."</td><td data-th='發文時間'>".$row["Time"]."</td><td data-th='修改'><a href='modifynote1.php?ID=".$row["ID"]."&account=".$row["account"]."'>修改</a></td><td data-th='刪除'><a href='removenote.php?ID=".$row["ID"]."&account=".$row["account"]."'>刪除</a></td></tr>";
+										echo "		<tr class='order col-xs-12'><td data-th='帳號'>".$row["account"]."</td><td data-th='標題'>".$row["title"]."</td><td data-th='內文'>".nl2br($row["description"])."</td><td data-th='發文時間'>".$row["time"]."</td><td data-th='修改'><a href='modifynote1.php?ID=".$row["id"]."&account=".$row["account"]."'>修改</a></td><td data-th='刪除'><a href='removenote.php?ID=".$row["id"]."&account=".$row["account"]."'>刪除</a></td></tr>";
 									}
 									//如果已經登入則顯示所登入帳號
 									if(isset($_COOKIE['account']))
