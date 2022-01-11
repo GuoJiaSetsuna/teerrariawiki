@@ -31,7 +31,7 @@
 					</div>
 				<!-- Header -->
 					<header id="header">
-						<a href="index.php" class="logo">Terraria</a>
+						<a href="index.html" class="logo">Terraria</a>
 					</header>
 
 				<!-- Nav -->
@@ -69,7 +69,7 @@
 										<br>&ensp;&bull;&ensp;<b>免費的內容更新</b>
 									</p>
 									<font size="50"><b>關於</b></font>
-									<a href="#" class="image main"><img src="assets/images/header.jpg" alt="" /></a>
+									<a class="image main"><img src="assets/images/header.jpg" alt="" /></a>
 									<p>發行日期：2011&ensp;年&ensp;5&ensp;月&ensp;17&ensp;日&ensp;<a href="https://zh.wikipedia.org/wiki/%E6%B3%B0%E6%8B%89%E7%91%9E%E4%BA%9A">維基百科</a>
 										<br>開發人員：<a href="https://store.steampowered.com/developer/Re-Logic">Re-Logic</a>
 										<br>發行商：<a href="https://store.steampowered.com/developer/Re-Logic">Re-Logic</a>
@@ -81,38 +81,189 @@
 								<h1>遊戲新聞</h1>
 							</div>
 						<!-- Posts -->
-							<section class="posts">
+							<section class="posts" id="p">
 								<?php
-								$url = "https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=105600&count=6&maxlength=300&format=json";
+								$j=6;
+								$url = "https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=105600&count=48&maxlength=300&format=json";
 								$json = file_get_contents($url);
 								$file = json_decode($json,true);
-								foreach($file['appnews']['newsitems'] as $key1 => $value1)
+								if(!isset($_GET["page"]))
 								{
-									echo "<article>
-											<header>
-												<h2>".$file['appnews']['newsitems'][$key1]['title']."</h2>
-											</header>
-											<p>".$file['appnews']['newsitems'][$key1]['contents']."</p>
-											<ul class='actions special'>
-												<li><a href='".$file['appnews']['newsitems'][$key1]['url']."' class='button'>查看更多</a></li>
-											</ul>
-										</article>";
+									for($i=0; $i<$j ; $i++ )
+									{
+										$Str = $file['appnews']['newsitems'][$i]['contents'];
+										if(stristr($Str, ".png "))
+										{
+											if(stristr($Str, "{STEAM_CLAN_IMAGE}"))
+											{
+												$Str0 = "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/clans/".stristr($Str, "/");
+												$Str1 = "<a class='image fit'><img src='".stristr($Str0, ".png ", true) . ".png' alt=''></a> ";
+												$Str2 = stristr($Str, ".png ");
+												$Str2 = substr($Str2, 5);
+												echo "<article>
+														<header>
+															<h2>".$file['appnews']['newsitems'][$i]['title']."</h2>
+														</header>
+														<p>".$Str1.$Str2."</p>
+														<ul class='actions special'>
+															<li><a href='".$file['appnews']['newsitems'][$i]['url']."' class='button'>查看更多</a></li>
+														</ul>
+													</article>";
+											}
+											else
+											{
+												$Str1 = "<a class='image fit'><img src='".stristr($Str, ".png ", true) . ".png' alt=''></a> ";
+												$Str2 = stristr($Str, ".png ");
+												$Str2 = substr($Str2, 5);
+												echo "<article>
+														<header>
+															<h2>".$file['appnews']['newsitems'][$i]['title']."</h2>
+														</header>
+														<p>".$Str1.$Str2."</p>
+														<ul class='actions special'>
+															<li><a href='".$file['appnews']['newsitems'][$i]['url']."' class='button'>查看更多</a></li>
+														</ul>
+													</article>";
+											}
+										}
+										elseif(stristr($Str, ".jpg "))
+										{
+											$Str1 = "<a class='image fit'><img src='".stristr($Str, ".jpg ", true) . ".jpg' alt=''></a> ";
+											$Str2 = stristr($Str, ".jpg ");
+											$Str2 = substr($Str2, 5);
+											echo "<article>
+													<header>
+														<h2>".$file['appnews']['newsitems'][$i]['title']."</h2>
+													</header>
+													<p>".$Str1.$Str2."</p>
+													<ul class='actions special'>
+														<li><a href='".$file['appnews']['newsitems'][$i]['url']."' class='button'>查看更多</a></li>
+													</ul>
+												</article>";
+										}
+										else
+										{
+											echo "<article>
+													<header>
+														<h2>".$file['appnews']['newsitems'][$i]['title']."</h2>
+													</header>
+													<p>".$file['appnews']['newsitems'][$i]['contents']."</p>
+													<ul class='actions special'>
+														<li><a href='".$file['appnews']['newsitems'][$i]['url']."' class='button'>查看更多</a></li>
+													</ul>
+												</article>";
+										}
+									}
+								}
+								else
+								{
+									$z=6*($_GET["page"]-1);
+									$j=6*$_GET["page"];
+									for($i=$z ; $i<$j ; $i++)
+									{
+										$Str = $file['appnews']['newsitems'][$i]['contents'];
+										if(stristr($Str, ".png "))
+										{
+											if(stristr($Str, "{STEAM_CLAN_IMAGE}"))
+											{
+												$Str0 = "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/clans/".stristr($Str, "/");
+												$Str1 = "<a class='image fit'><img src='".stristr($Str0, ".png ", true) . ".png' alt=''></a> ";
+												$Str2 = stristr($Str, ".png ");
+												$Str2 = substr($Str2, 5);
+												echo "<article>
+														<header>
+															<h2>".$file['appnews']['newsitems'][$i]['title']."</h2>
+														</header>
+														<p>".$Str1.$Str2."</p>
+														<ul class='actions special'>
+															<li><a href='".$file['appnews']['newsitems'][$i]['url']."' class='button'>查看更多</a></li>
+														</ul>
+													</article>";
+											}
+											else
+											{
+												$Str1 = "<a class='image fit'><img src='".stristr($Str, ".png ", true) . ".png' alt=''></a> ";
+												$Str2 = stristr($Str, ".png ");
+												$Str2 = substr($Str2, 5);
+												echo "<article>
+														<header>
+															<h2>".$file['appnews']['newsitems'][$i]['title']."</h2>
+														</header>
+														<p>".$Str1.$Str2."</p>
+														<ul class='actions special'>
+															<li><a href='".$file['appnews']['newsitems'][$i]['url']."' class='button'>查看更多</a></li>
+														</ul>
+													</article>";
+											}
+										}
+										elseif(stristr($Str, ".jpg "))
+										{
+											$Str1 = "<a class='image fit'><img src='".stristr($Str, ".jpg ", true) . ".jpg' alt=''></a> ";
+											$Str2 = stristr($Str, ".jpg ");
+											$Str2 = substr($Str2, 5);
+											echo "<article>
+													<header>
+														<h2>".$file['appnews']['newsitems'][$i]['title']."</h2>
+													</header>
+													<p>".$Str1.$Str2."</p>
+													<ul class='actions special'>
+														<li><a href='".$file['appnews']['newsitems'][$i]['url']."' class='button'>查看更多</a></li>
+													</ul>
+												</article>";
+										}
+										else
+										{
+											echo "<article>
+													<header>
+														<h2>".$file['appnews']['newsitems'][$i]['title']."</h2>
+													</header>
+													<p>".$file['appnews']['newsitems'][$i]['contents']."</p>
+													<ul class='actions special'>
+														<li><a href='".$file['appnews']['newsitems'][$i]['url']."' class='button'>查看更多</a></li>
+													</ul>
+												</article>";
+										}
+									}
 								}
 								?>
 							</section>
 						<!-- Footer -->
 							<footer>
+							<?php
+							if(!isset($_GET["page"]))
+							{
+								$Page = 3;
+							?>
 								<div class="pagination">
 									<!--<a href="#" class="previous">Prev</a>-->
-									<a href="#" class="page active">1</a>
-									<a href="#" class="page">2</a>
-									<a href="#" class="page">3</a>
-									<a href="#" class="page">4</a>
-									<a href="#" class="page">5</a>
-									<a href="#" class="page">6</a>
-									<a href="#" class="page">7</a>
-									<a href="#" class="next">Next</a>
+									<a href="index.php#p" class="page active">1</a>
+									<a href="index.php?page=2#p" class="page">2</a>
+									<a href="index.php?page=3#p" class="page">3</a>
+									<a href="index.php?page=4#p" class="page">4</a>
+									<a href="index.php?page=5#p" class="page">5</a>
+									<a href="index.php?page=6#p" class="page">6</a>
+									<a href="index.php?page=7#p" class="page">7</a>
+									<a href="index.php?page=2#p" class="next">Next</a>
 								</div>
+							<?php
+							}
+							else
+							{
+							?>
+								<div class="pagination">
+									<!--<a href="#" class="previous">Prev</a>-->
+									<a href="index.php#p" class="page">1</a>
+									<a href="index.php?page=2#p" class="page<?php if($_GET["page"]==2){echo" active"; }?>">2</a>
+									<a href="index.php?page=3#p" class="page<?php if($_GET["page"]==3){echo" active"; }?>">3</a>
+									<a href="index.php?page=4#p" class="page<?php if($_GET["page"]==4){echo" active"; }?>">4</a>
+									<a href="index.php?page=5#p" class="page<?php if($_GET["page"]==5){echo" active"; }?>">5</a>
+									<a href="index.php?page=6#p" class="page<?php if($_GET["page"]==6){echo" active"; }?>">6</a>
+									<a href="index.php?page=7#p" class="page<?php if($_GET["page"]==7){echo" active"; }?>">7</a>
+									<a href="index.php?page=<?php $p = $_GET["page"]+1;if($_GET["page"]<=6){echo $p;}else{echo $_GET["page"];}?>#p" class="next">Next</a>
+								</div>
+							<?php
+							}
+							?>
 							</footer>
 							<h2 align="center">聯絡我們</h2>
 					</div>
