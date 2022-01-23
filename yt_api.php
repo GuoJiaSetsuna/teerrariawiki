@@ -88,7 +88,7 @@
 													<h2>".$file['items'][$i]['snippet']['title']."</h2>
 												</header>
 												<p><a class='image fit'><img src='".$file['items'][$i]['snippet']['thumbnails']['standard']['url']."' alt=''></a>"
-												.mb_substr($file['items'][$i]['snippet']['description'],0,300)."</p>
+												.substr($file['items'][$i]['snippet']['description'],0,300)."</p>
 												<ul class='actions special'>
 													<li><a href=' https://www.youtube.com/watch?v=".$file['items'][$i]['snippet']['resourceId']['videoId']."' class='button'>查看更多</a></li>
 												</ul>
