@@ -56,7 +56,7 @@
 										//如果已經登入則顯示所登入帳號並回到首頁
 										if(isset($_COOKIE['account']))
 										{
-											echo"<h3>您以已登入:".$_COOKIE['account']."</h3>";
+											echo"<h3>您已登入:".$_COOKIE['account']."</h3>";
 											echo '<meta http-equiv=REFRESH CONTENT=2;url=index.php>';
 										}
 										else
