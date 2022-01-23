@@ -55,22 +55,22 @@
 										}
 										elseif($_GET["dmg"]==NULL||$_GET["crit"]==NULL||$_GET["critdmg"]==NULL||$_GET["speed"]==NULL||$_GET["buff"]==NULL||$_GET["dot"]==NULL||$_GET["hp"]==NULL||$_GET["armor"]==NULL||$_GET["hot"]==NULL)
 										{//輸入值為空時提示字樣
-											echo '<font size="50"><b>以下數值全皆不得為空</b></font>';
+											echo "<font size='50'><b>以下數值全皆不得為空</b></font>";
 										}
 										else
 										{
 											// DPS算式
 											$dps = (((($_GET["dmg"]*(1+($_GET["buff"]/100)))*(1+($_GET["crit"]/100)*($_GET["critdmg"]/100)))*$_GET["speed"])+$_GET["dot"]);//計算DPS
-											echo "攻擊者的理想DPS(每秒攻擊傷害)是:$dps<br>";
+											echo "<font size='50'><b>攻擊者的理想DPS(每秒攻擊傷害)是:$dps</b></font><br>";
 											//所需擊殺時間算式
 											$time = $_GET["hp"]/(((($_GET["dmg"]*(1+($_GET["buff"]/100)))*(1+($_GET["crit"]/100)*($_GET["critdmg"]/100)))*(1-($_GET["armor"]/100))*$_GET["speed"])+($_GET["dot"]-$_GET["hot"]));//計算擊殺時間
 											if($time<0) //如果time<0代表傷害低於目標每秒回血則回傳無法擊殺
 											{
-												echo "<font size="50"><b>你無法擊殺目標</b></font>";
+												echo "<font size='50'><b>你無法擊殺目標</b></font>";
 											}
 											else //回傳擊殺目標所需時間
 											{
-												echo "<font size="50"><b>攻擊者必須至少花.$time.秒才能殺死目標</b></font>";
+												echo "<font size='50'><b>攻擊者必須至少花".$time."秒才能殺死目標</b></font>";
 											}
 										}
 									?>
