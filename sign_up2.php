@@ -75,7 +75,7 @@
 											//若$row不存在代表無相同帳號，進行註冊
 											if(!isset($row[1]))
 											{
-												//INSERT所輸入帳號密碼進行註冊
+												//INSERT所輸入帳號密碼進行註冊且加密
 												$query1 = "INSERT INTO public.user(account,password) VALUES ('$account',encrypt('$accpassword','My Secret Key','aes'))";
 												$count=$link->exec($query1);
 												echo "<h3>註冊成功</h3>";
