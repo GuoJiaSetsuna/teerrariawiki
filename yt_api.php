@@ -48,54 +48,7 @@
 						</div>
 						<!-- Posts -->
 							<section class="posts">
-								<?php
-								//設定第一頁FOR迴圈的顯示所需變數
-								$j=6;
-								//抓取YT頻道API,playlistId為抓取頻道的ID,key為API抓取者的API金鑰,maxResults為所要抓取的影片數量最大為50
-								$url = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails,status&playlistId=UUq3QzpKNapKhCl4jpgQB44w&key=AIzaSyAr7mgXVllwwWUkLl4HOo3oniC7fVS-UaA&maxResults=36";
-								//將所抓取的API json檔做處理
-								$json = file_get_contents($url);
-								$file = json_decode($json,true);
-								//用IF,else判斷是否為第一頁,如是則進入
-								if(!isset($_GET["page"]))
-								{
-									for($i=0; $i<$j ; $i++ )
-									{
-										//以設計好的版型顯示該筆資料
-										echo "<article>
-												<header>
-													<h2>".$file['items'][$i]['snippet']['title']."</h2>
-												</header>
-												<p><a class='image fit'><img src='".$file['items'][$i]['snippet']['thumbnails']['standard']['url']."' alt=''></a>"
-												.mb_substr($file['items'][$i]['snippet']['description'],0,300)."</p>
-												<ul class='actions special'>
-													<li><a href=' https://www.youtube.com/watch?v=".$file['items'][$i]['snippet']['resourceId']['videoId']."' class='button'>查看更多</a></li>
-												</ul>
-											</article>";
-									}
-								}
-								//若判斷不為第一頁時進入
-								else
-								{	
-									//處理FOR迴圈所需變數
-									$z=6*($_GET["page"]-1);
-									$j=6*$_GET["page"];
-									for($i=$z ; $i<$j ; $i++)
-									{
-										//以設計好的版型顯示該筆資料
-										echo "<article>
-												<header>
-													<h2>".$file['items'][$i]['snippet']['title']."</h2>
-												</header>
-												<p><a class='image fit'><img src='".$file['items'][$i]['snippet']['thumbnails']['standard']['url']."' alt=''></a>"
-												.mb_substr($file['items'][$i]['snippet']['description'],0,300)."</p>
-												<ul class='actions special'>
-													<li><a href=' https://www.youtube.com/watch?v=".$file['items'][$i]['snippet']['resourceId']['videoId']."' class='button'>查看更多</a></li>
-												</ul>
-											</article>";
-									}
-								}
-								?>
+
 							</section>
 						<!-- Footer -->
 							<footer>
