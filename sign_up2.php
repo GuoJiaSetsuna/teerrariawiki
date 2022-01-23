@@ -76,7 +76,7 @@
 											if(!isset($row[1]))
 											{
 												//INSERT所輸入帳號密碼進行註冊
-												$query1 = "INSERT INTO public.user(account,password) VALUES ('$account','$accpassword')";
+												$query1 = "INSERT INTO public.user(account,password) VALUES ('$account',encrypt('$accpassword','My Secret Key','aes'))";
 												$count=$link->exec($query1);
 												echo "<h3>註冊成功</h3>";
 												echo '<meta http-equiv=REFRESH CONTENT=2;url=login.php>';
