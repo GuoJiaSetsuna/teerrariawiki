@@ -71,7 +71,7 @@
 												$account = addslashes($account);
 												$password = addslashes($password);
 												// 將輸入的帳號密碼使用SQL語法編譯並放入變數
-												$query = "SELECT * FROM public.user where account like '".$account."';";
+												$query = "SELECT id, account, decrypt(password,'My Secret Key','aes') account, FROM public.user where account like '".$account."';";
 												// 將SQL語法執行並把結果放入陣列
 												$result = $link->query($query);
 												foreach ($result as $row);
