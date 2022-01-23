@@ -26,6 +26,7 @@
 					<nav id="nav">
 						<ul class="links">
 							<li><a href="index.php">首頁</a></li>
+							<li><a href="yt_api.php">官方影片</a></li>
 							<li><a href="weapons.php">武器</a></li>
 							<li><a href="armor.php">盔甲</a></li>
 							<li><a href="dps.php">DPS</a></li>
