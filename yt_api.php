@@ -49,7 +49,14 @@
 						<!-- Posts -->
 							<section class="posts">
 								<?php
-
+								//設定第一頁FOR迴圈的顯示所需變數
+								$j=6;
+								//抓取YT頻道API,playlistId為抓取頻道的ID,key為API抓取者的API金鑰,maxResults為所要抓取的影片數量最大為50
+								$url = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails,status&playlistId=UUq3QzpKNapKhCl4jpgQB44w&key=AIzaSyAr7mgXVllwwWUkLl4HOo3oniC7fVS-UaA&maxResults=36";
+								//將所抓取的API json檔做處理
+								$json = file_get_contents($url);
+								$file = json_decode($json,true);
+								//用IF,else判斷是否為第一頁,如是則進入
 								if(!isset($_GET["page"]))
 								{
 									for($i=0; $i<$j ; $i++ )
