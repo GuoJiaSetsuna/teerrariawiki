@@ -70,7 +70,7 @@
 												$password = $_GET["password"];
 												$account = addslashes($account);
 												$password = addslashes($password);
-												// 將輸入的帳號密碼使用SQL語法編譯並放入變數
+												// 將輸入的帳號密碼解碼後使用SQL語法編譯並放入變數
 												$query = "SELECT ID,account,convert_from(decrypt(password,'My Secret Key','aes'), 'utf-8') FROM public.user where account like '".$account."';";
 												// 將SQL語法執行並把結果放入陣列
 												$result = $link->query($query);
