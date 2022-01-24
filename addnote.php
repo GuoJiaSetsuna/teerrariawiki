@@ -59,8 +59,18 @@
 										{
 											if ((isset($_POST["title"])) && (isset($_POST["description"])))	// 用isset()檢查變數是否有值(非NULL)
 											{  // 接收使用者所傳送之標題與內文
+												if(isset($_FILES['file']))
+												{
+													$fileName = 'assets/images/'.$_FILES['file']['name'];
+													$Str1 = "<a class=\'image fit\'><img src=\'".$fileName."\' alt=\'\'></a>";
+													move_uploaded_file($_FILES['file']['tmp_name'],$fileName);
+													$description = $_POST["description"].$Str1;
+												}
+												else
+												{
+													$description = $_POST["description"];
+												}
 												$title = $_POST["title"];
-												$description = $_POST["description"];
 												$link = new PDO('pgsql:host='.$hostname.';port='.$port.';dbname='.$database,$username, $password);
 												//將標題與內文INSERT至資料庫
 												$query = "INSERT INTO note(account,title,description) VALUES ('".$_COOKIE['account']."','".$title."','".$description."')";
