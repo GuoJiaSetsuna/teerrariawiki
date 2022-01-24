@@ -48,7 +48,7 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<h1>DPS(每秒攻擊傷害)計算器</h1>
+									<h1 id="d">DPS(每秒攻擊傷害)計算器</h1>
 									<?php
 										if(!isset($_GET["dmg"])||!isset($_GET["crit"])||!isset($_GET["critdmg"])||!isset($_GET["speed"])||!isset($_GET["buff"])||!isset($_GET["dot"])||!isset($_GET["hp"])||!isset($_GET["armor"])||!isset($_GET["hot"]))
 										{//初始無輸入值時不顯示
@@ -74,7 +74,7 @@
 											}
 										}
 									?>
-									<form method="GET" action="dps.php">
+									<form method="GET" action="dps.php#d">
 										<p>請輸入基礎傷害數值:<br><input type="text" name="dmg"></p>
 										<p>請輸入爆擊機率(單位:%):<br><input type="text" name="crit"></p>
 										<p>請輸入爆擊傷害倍率(單位:%):<br><input type="text" name="critdmg"></p>
