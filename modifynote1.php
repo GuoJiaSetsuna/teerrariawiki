@@ -70,8 +70,8 @@
 											//將搜尋結果放入text
 											while ($row=$result->fetch(PDO::FETCH_ASSOC))
 											{
-												$title = $row['Title'];
-												$description = $row['Description'];
+												$title = $row['title'];
+												$description = $row['description'];
 											}
 											//若帳號與發文者不相同則顯示提醒文字並返回討論區
 											if($acc!=$cookie)
