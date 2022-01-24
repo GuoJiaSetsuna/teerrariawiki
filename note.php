@@ -78,7 +78,6 @@
 								<form action="addnote.php" method="post">
 								標題<input type="text" name="title"></br>
 								內文<textarea cols="50" rows="10" name="description"></textarea></br>
-								圖片<input type="file" name="file" accept="image/*"></br>
 								<input type="submit" value="新增資料">
 							</section>
 
