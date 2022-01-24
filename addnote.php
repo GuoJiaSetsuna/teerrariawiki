@@ -58,9 +58,10 @@
 										if(isset($_COOKIE['account']))
 										{
 											if ((isset($_POST["title"])) && (isset($_POST["description"])))	// 用isset()檢查變數是否有值(非NULL)
-											{  // 接收使用者所傳送之標題與內文
-												$title = $_POST["title"];
-												$description = $_POST["description"];
+											{
+												// 接收使用者所傳送之標題、內文與ID並且防止惡意HTME指令
+												$title = htmlspecialchars($_POST["title"],ENT_QUOTES);
+												$description = htmlspecialchars($_POST["description"],ENT_QUOTES);
 												$link = new PDO('pgsql:host='.$hostname.';port='.$port.';dbname='.$database,$username, $password);
 												//將標題與內文INSERT至資料庫
 												$query = "INSERT INTO note(account,title,description) VALUES ('".$_COOKIE['account']."','".$title."','".$description."')";
