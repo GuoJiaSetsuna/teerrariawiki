@@ -55,9 +55,9 @@
 									<?php
 										if ((isset($_POST["ID"])) && (isset($_POST["description"])) && (isset($_POST["title"])))	// 用isset()檢查變數是否有值(非NULL)
 										{
-											// 接收使用者所傳送之標題、內文與ID
-											$title = $_POST["title"];
-											$description = $_POST["description"];
+											// 接收使用者所傳送之標題、內文與ID並且防止惡意HTME指令
+											$title = htmlspecialchars($_POST["title"],ENT_QUOTES);
+											$description = htmlspecialchars($_POST["description"],ENT_QUOTES);
 											$ID = $_POST["ID"];
 											$link = new PDO('pgsql:host='.$hostname.';port='.$port.';dbname='.$database,$username, $password);
 											//使用所接收到的變數對資料庫討論區表單進行UPDATE
