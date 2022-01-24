@@ -60,7 +60,7 @@
 									// 建立與MySQL資料庫的連線
 									$link = new PDO('pgsql:host='.$hostname.';port='.$port.';dbname='.$database,$username, $password);
 									// 寫入SQL語法到變數
-									$query = "SELECT to_char(Time,'YYYY-Mon-dd') AS Time,Title,account,ID,Description FROM Note ORDER BY  DESC;";
+									$query = "SELECT to_char(Time,'YYYY-Mon-dd') AS Time,Title,account,ID,Description FROM Note ORDER BY Time DESC;";
 									$result = $link->query($query);
 									//印出
 									foreach ($result as $row)						
