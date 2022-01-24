@@ -65,7 +65,7 @@
 											$cookie =$_COOKIE['account'];
 											$link = new PDO('pgsql:host='.$hostname.';port='.$port.';dbname='.$database,$username, $password);
 											//使用ID對資料庫之留言資料表進行搜尋
-											$query = "SELECT title,id,description FROM note WHERE id = '$ID' ;";
+											$query = "SELECT title,ID,description FROM note WHERE ID = '$ID' ;";
 											$result = $link->query($query);
 											//將搜尋結果放入text
 											while ($row=$result->fetch(PDO::FETCH_ASSOC))
