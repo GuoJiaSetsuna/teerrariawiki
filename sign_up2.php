@@ -64,9 +64,9 @@
 										}
 										else
 										{
-											// 接收使用者所傳送之帳號與密碼
-											$account = $_GET["account"];
-											$accpassword = $_GET["accpassword"];
+											// 接收使用者所傳送之帳號與密碼並且防止惡意SQL指令
+											$account = addslashes($_GET["account"]);
+											$accpassword = addslashes($_GET["accpassword"]);
 											$link = new PDO('pgsql:host='.$hostname.';port='.$port.';dbname='.$database,$username, $password);
 											// 將輸入的帳號密碼使用SQL語法編譯並放入變數，搜尋是否有重複之帳號
 											$query = "SELECT * FROM public.user where account like '".$account."';";
